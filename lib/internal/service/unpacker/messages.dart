@@ -33,7 +33,7 @@ class Messages extends FileStructure {
         shareLink: (){
           final jsonShare = e["share"];
           if (jsonShare == null) return "";
-          return jsonShare["link"];
+          return jsonShare["link"] as String? ?? "";
         }(),
         reactions: (){
           final jsonReactions = e["reactions"] as List<dynamic>?;
