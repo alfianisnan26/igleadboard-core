@@ -8,4 +8,17 @@ class User {
     required this.username,
     required this.ts,
   });
+
+  @override
+  String toString() {
+    return username;
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return hashCode == other.hashCode;
+  }
+
+  @override
+  int get hashCode => username.hashCode;
 }

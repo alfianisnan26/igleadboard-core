@@ -12,7 +12,7 @@
         <entry key="_macros">
           <value>
             <list>
-              <option value="/opt/homebrew/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
+              <option value="/usr/local/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
             </list>
           </value>
         </entry>
@@ -20,6 +20,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/analyzer-6.5.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="archive">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/archive-3.6.0/lib" />
             </list>
           </value>
         </entry>
@@ -420,6 +427,7 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-68.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/analyzer-6.5.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/archive-3.6.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/args-2.5.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/async-2.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1/lib" />
@@ -476,7 +484,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/web_socket_channel-3.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webkit_inspection_protocol-1.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/yaml-3.1.2/lib" />
-      <root url="file:///opt/homebrew/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
+      <root url="file:///usr/local/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
