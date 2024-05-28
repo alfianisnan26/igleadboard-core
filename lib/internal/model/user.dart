@@ -1,13 +1,21 @@
+import 'package:igleadboard_core/internal/model/profile.dart';
+
 class User {
-  final String href;
+  String? href;
+  DateTime? ts;
   final String username;
-  final DateTime ts;
 
   User({
-    required this.href,
+    this.href,
     required this.username,
-    required this.ts,
+    this.ts,
   });
+
+  void resolve(List<User> users) {
+    final updatedUser = users.firstWhere((e) => e == this, orElse: () => this);
+    href = updatedUser.href;
+    ts = updatedUser.ts;
+  }
 
   @override
   String toString() {
@@ -16,6 +24,10 @@ class User {
 
   @override
   bool operator ==(Object other) {
+    if (other is Profile && username == "me") {
+      return true;
+    }
+
     return hashCode == other.hashCode;
   }
 

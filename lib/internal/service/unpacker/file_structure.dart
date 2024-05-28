@@ -52,6 +52,36 @@ class FileStructure {
     return FileStructure(base: join(dir), archive: _archive);
   }
 
+  List<String> getSubFiles({bool excludeFile = false, bool excludeDir = false, bool strict = false, String? prefix}) {
+    String base = _base;
+    if (prefix != null) {
+       base = path.join(base, prefix);
+    }
+
+    return _archive.where((e){
+      if (e.name == _base || e.name == "$_base${path.separator}") {
+        return false;
+      }
+
+      if (strict && e.name != base) {
+        return false;
+      }
+
+      if (!e.name.startsWith(base)) {
+        return false;
+      }
+
+      if (excludeFile && e.isFile) {
+        return false;
+      }
+
+      if (excludeDir && !e.isFile) {
+        return false;
+      }
+
+      return true;
+    }).map((e)=>e.name).toList(growable: false);
+  }
 
 }
 

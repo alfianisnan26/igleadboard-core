@@ -8,9 +8,9 @@ import 'package:igleadboard_core/internal/service/unpacker/saved.dart';
 class InstagramActivity extends FileStructure{
   InstagramActivity(FileStructure fs): super(fs: fs);
 
-  Comments get comments => Comments(pass("comments.dart"));
+  Comments get comments => Comments(pass("comments"));
   Content get content => Content(pass("content"));
   Likes get likes => Likes(pass("likes"));
-  Messages get messages => Messages(pass("messages"));
+  MessageGroup get messages => MessageGroup(pass("messages"));
   Saved get saved => Saved(pass("saved"));
 }

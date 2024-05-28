@@ -5,7 +5,6 @@ class FollowersAndFollowing extends FileStructure{
   List<User> _getUserObject(String filename, [String? tagName]) {
     var json = getJsonContent(join(filename));
     if (tagName != null) {
-      print("$filename $tagName");
       json = json[tagName];
     }
 
