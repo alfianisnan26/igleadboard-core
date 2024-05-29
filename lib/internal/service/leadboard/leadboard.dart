@@ -27,17 +27,14 @@ import 'package:igleadboard_core/internal/service/unpacker/messages.dart';
 //        - Monthy (Top 5, Top 50%)
 //        - All Times (Top 5, Top 50%)
 
-class MessageScore {
-  int count = 0;
-  int charCount = 0;
-}
+
 
 class LeadBoard {
   final Data _data;
   LeadBoard(this._data);
 
-  List<Score> getMostMessageCount() {
-    List<Score> scores = [];
+  List<MessageScore> getMessageLeadBoard({List<String>? skipName}) {
+
     final inbox = _data.instagramActivity.messages.inbox;
     final chatIds = inbox.getAvailableChatId();
 
@@ -46,19 +43,13 @@ class LeadBoard {
     for (final chatId in chatIds) {
       final chat = inbox.getChatById(chatId);
       for (final message in chat.messages) {
-        final score = messageScoreMap.putIfAbsent(message.senderName, ()=>MessageScore());
+        if (skipName != null && skipName.contains(message.senderName)) continue;
+
+        final score = messageScoreMap.putIfAbsent(chatId, ()=>MessageScore(chatId));
         score.count++;
         score.charCount += message.content.length;
       }
     }
-
-    for (final name in messageScoreMap.keys) {
-      final score = Score(name);
-      score.value = messageScoreMap[name]!.count;
-      scores.add(score);
-    }
-
-    scores.sort((b, a)=> a.value.compareTo(b.value));
-    return scores;
+    return messageScoreMap.values.toList(growable: false);
   }
 }

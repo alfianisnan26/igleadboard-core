@@ -1,11 +1,12 @@
-class Score {
-  int value = 0;
-  String name;
+class MessageScore {
+  String chatId;
+  int count = 0;
+  int charCount = 0;
 
-  Score(this.name);
+  MessageScore(this.chatId);
 
   @override
   String toString() {
-    return "$name: $value";
+    return "$chatId: $count ($charCount)";
   }
 }
